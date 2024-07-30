@@ -18,5 +18,7 @@ defmodule UiWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/button", ButtonLive
   end
 end
