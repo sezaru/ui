@@ -24,5 +24,9 @@ defmodule UiWeb.Router do
     live "/modal", ModalLive, :index
     live "/modal/open_1", ModalLive, :modal_1
     live "/modal/open_2", ModalLive, :modal_2
+
+    live "/drawer", DrawerLive, :index
+    live "/drawer/open_1", DrawerLive, :drawer_1
+    live "/drawer/open_2", DrawerLive, :drawer_2
   end
 end
