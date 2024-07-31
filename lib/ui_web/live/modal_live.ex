@@ -35,9 +35,15 @@ defmodule UiWeb.ModalLive do
   def handle_event("submit", %{"form" => params}, socket) do
     %{form: form} = socket.assigns
 
-    AshPhoenix.Form.submit(form, params: params)
+    case AshPhoenix.Form.submit(form, params: params) do
+      {:error, form} ->
+        {:noreply, assign(socket, form: form)}
 
-    {:noreply, socket}
+      {:ok, resource} ->
+        dbg(resource)
+
+        {:noreply, socket}
+    end
   end
 
   def handle_event("load_shit", _, socket) do
@@ -82,10 +88,10 @@ defmodule UiWeb.ModalLive do
 
     <Modal.base
       id="modal_2"
-      closable?={false}
+      closable?={true}
       mount_showing?={@live_action == :modal_2}
-      on_hide={JS.patch(~p"/modal") |> JS.push("reset_shit")}
-      on_show={JS.patch(~p"/modal/open_2") |> JS.push("load_shit")}
+      on_hide={JS.patch(~p"/modal")}
+      on_show={JS.patch(~p"/modal/open_2")}
     >
       <!-- Modal header -->
       <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
