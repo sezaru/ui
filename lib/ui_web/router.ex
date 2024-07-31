@@ -20,5 +20,9 @@ defmodule UiWeb.Router do
     get "/", PageController, :home
 
     live "/button", ButtonLive
+
+    live "/modal", ModalLive, :index
+    live "/modal/open_1", ModalLive, :modal_1
+    live "/modal/open_2", ModalLive, :modal_2
   end
 end

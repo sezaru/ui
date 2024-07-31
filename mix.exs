@@ -44,6 +44,7 @@ defmodule Ui.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:ash, "~> 3.3"},
+      {:ash_phoenix, "~> 2.1"},
       {:picosat_elixir, "~> 0.2.3"},
       {:turboprop, "~> 0.4"}
     ]
