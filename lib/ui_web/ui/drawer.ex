@@ -32,6 +32,9 @@ defmodule UI.Drawer do
         data-on-show={@on_show}
         data-on-hide={@on_hide}
         phx-mounted={if @mount_showing?, do: call_on_show(@id)}
+        phx-click-away={if @closable?, do: hide(@id)}
+        phx-window-keyup={if @closable?, do: hide(@id)}
+        phx-key={if @closable?, do: "escape"}
       >
         <%= render_slot(@inner_block) %>
       </div>
