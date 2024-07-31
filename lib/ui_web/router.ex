@@ -28,5 +28,9 @@ defmodule UiWeb.Router do
     live "/drawer", DrawerLive, :index
     live "/drawer/open_1", DrawerLive, :drawer_1
     live "/drawer/open_2", DrawerLive, :drawer_2
+
+    live "/tabs", TabsLive, :index
+    live "/tabs/load_shit", TabsLive, :load_shit
+    live "/tabs/with_form", TabsLive, :with_form
   end
 end
