@@ -82,10 +82,10 @@ defmodule UiWeb.DrawerLive do
 
     <Drawer.base
       id="drawer_2"
-      closable?={false}
+      closable?={true}
       mount_showing?={@live_action == :drawer_2}
-      on_hide={JS.patch(~p"/drawer") |> JS.push("reset_shit")}
-      on_show={JS.patch(~p"/drawer/open_2") |> JS.push("load_shit")}
+      on_hide={JS.patch(~p"/drawer")}
+      on_show={JS.patch(~p"/drawer/open_2")}
     >
       <h5
         id="drawer-label"
@@ -103,7 +103,7 @@ defmodule UiWeb.DrawerLive do
       </h5>
       <button
         type="button"
-        phx-click={Drawer.hide("drawer_1")}
+        phx-click={Drawer.hide("drawer_2")}
         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
       >
         <svg
